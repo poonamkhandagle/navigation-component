@@ -4,6 +4,8 @@ import Accordion from "./components/Accordion";
 import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
 import Translate from "./components/Translate";
+import Route from "./components/Route";
+import Header from "./components/Header";
 const items = [
   {
     title:"what is React?",
@@ -33,35 +35,29 @@ const options = [
   }
 ]
 
-const showAccordion = () =>{
-  if(window.location.pathname === "/"){
-    return <Accordion items={items} />
-  }
-}
-const showList = () =>{
-  if(window.location.pathname === "/list"){
-    return <Search />
-  }
-}
-
-const showDropdown = () =>{
-  if(window.location.pathname === "/Dropdown"){
-    return <Dropdown options={options} />
-  }
-}
-
-const showTranslate = () =>{
-  if(window.location.pathname === "/Translate"){
-    return <Translate />
-  }
-}
  const App = () => {
+   const [selected,setSelected] = useState(options[0]);
   return(
     <div>
-      {showAccordion()}
-      {showList()}
-      {showDropdown()}
-      {showTranslate()}
+      <Header />
+      <Route path="/">
+        <Accordion items={items} />
+      </Route>
+
+      <Route path="/list">
+        <Search />
+      </Route>
+
+      <Route path="/Dropdown">
+        <Dropdown label="select a color"
+           options={options}
+          selected={selected}
+          onselectedChange={setSelected} />
+      </Route>
+
+      <Route path="/Translate">
+        <Translate />
+      </Route>
     </div>
 )
 }

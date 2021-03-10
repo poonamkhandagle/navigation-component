@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
  const Convert = ({ language, text }) => {
    const[translated,setTranslated] = useState(" ");
-   const[debouncedText,setDebouncedText] = useState("text")
+   const[debouncedText,setDebouncedText] = useState("")
    useEffect(() => {
      const timeoutId = setTimeout(() => {
       setDebouncedText(text);
