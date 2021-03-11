@@ -35,8 +35,8 @@ const options = [
   }
 ]
 
- const App = () => {
-   const [selected,setSelected] = useState(options[0]);
+const App = () => {
+  const [selected,setSelected] = useState(options[0]);
   return(
     <div>
       <Header />
@@ -50,7 +50,7 @@ const options = [
 
       <Route path="/Dropdown">
         <Dropdown label="select a color"
-           options={options}
+          options={options}
           selected={selected}
           onselectedChange={setSelected} />
       </Route>
@@ -59,6 +59,6 @@ const options = [
         <Translate />
       </Route>
     </div>
-)
+  )
 }
 export default App;
